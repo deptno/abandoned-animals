@@ -4,6 +4,7 @@
   "dependencies": {
     "apollo-datasource": "^0.6.4",
     "apollo-server-lambda": "^2.9.16",
-    "@deptno/aa_graphql_type": "file:../aa_graphql_type"
+    "@deptno/aa_graphql_type": "file:../aa_graphql_type",
+    "@deptno/aa_data_source": "file:../aa_data_source"
   }
 }
