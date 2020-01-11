@@ -2,6 +2,6 @@ schema {
   query: Query
 }
 type Query {
-  test: String
+  env: String
   aa(first: Int = 5): Boolean!
 }
