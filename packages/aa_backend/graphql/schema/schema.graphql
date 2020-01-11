@@ -3,4 +3,5 @@ schema {
 }
 type Query {
   production: Boolean!
+  aa(first: Int = 5): Boolean!
 }
