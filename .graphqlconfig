@@ -7,6 +7,12 @@
         "headers": {
           "user-agent": "JS GraphQL"
         }
+      },
+      "dev": {
+        "url": "https://wlfoc30xcj.execute-api.ap-northeast-2.amazonaws.com/dev/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        }
       }
     }
   }

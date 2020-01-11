@@ -10,10 +10,19 @@
     "packages/*"
   ],
   "scripts": {
+    "--------------------훅": "#",
     "postinstall": "yarn build:packages",
-    "start": "tsnd packages/aa_backend/handler/graphql.local.ts",
+    "--------------------빌드": "#",
     "build": "tsc -p packages/aa_datalake",
     "build:packages": "tsc -p packages/aa_assert -p packages/aa_type",
+    "--------------------개발": "#",
+    "graphql": "tsnd packages/aa_backend/handler/graphql.local.ts",
+    "--------------------배포": "#",
+    "dev:package": "cd packages/aa_backend && sls package -s dev",
+    "dev:deploy": "cd packages/aa_backend && sls deploy -s dev",
+    "--------------------로그": "#",
+    "dev:log:graphql": "cd packages/aa_backend && sls logs -t -f graphql",
+    "--------------------테스트": "#",
     "test": "jest"
   },
   "devDependencies": {
@@ -23,6 +32,7 @@
     "@types/jest": "^24.0.25",
     "@types/node": "12",
     "apollo-server": "^2.9.16",
+    "babel-loader": "^8.0.6",
     "dotenv": "^8.2.0",
     "jest": "^24.9.0",
     "jest-fetch-mock": "^3.0.1",

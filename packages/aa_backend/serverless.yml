@@ -7,6 +7,7 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'ap-northeast-2'}
   runtime: nodejs12.x
+  memorySize: 128
   logRetentionInDays: 7
   iamRoleStatements:
     - Effect: Allow
@@ -40,6 +41,7 @@ provider:
         - s3:AbortMultipartUpload
         - s3:CreateBucket
       Resource: "arn:aws:s3:::*"
+  environment: ${file(./environment.yml):${self:provider.stage}}
 
 package:
   indivisually: true
@@ -52,7 +54,6 @@ functions:
   graphql:
     description: GraphQL
     handler: handler/graphql.handler
-    memorSize: 256
     events:
       - http:
           path: /graphql
@@ -60,3 +61,6 @@ functions:
           cors:
             origin: '*'
             maxAge: 86400
+      - http:
+          path: /graphql
+          method: get

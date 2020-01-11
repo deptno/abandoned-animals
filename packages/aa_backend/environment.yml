@@ -1,0 +1,8 @@
+dev:
+  STAGE: dev
+  TZ: utc
+  CORS: '*'
+prd:
+  STAGE: prd
+  TZ: utc
+  CORS: '*'

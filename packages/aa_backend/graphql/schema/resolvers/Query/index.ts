@@ -1,5 +1,5 @@
-import {hello} from './hello'
+import {production} from './production'
 
 export const Query = {
-  hello
+  production
 }
