@@ -47,7 +47,11 @@ yarn workspace @deptno/{패키지명} add 디펜던시 # 패키지명 예. aa_fr
 카멜 케이스(camelCase)
 ### aws
 ```shell script
-aws configure --profile aa # 설정
+$ aws configure --profile aa                                                                       
+AWS Access Key ID [None]: ********************
+AWS Secret Access Key [None]: ****************************************
+Default region name [None]: ap-northeast-2
+Default output format [None]: json
 ```
 
 ## 검색 요구사항

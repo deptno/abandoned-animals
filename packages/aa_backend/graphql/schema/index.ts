@@ -1,4 +1,4 @@
-import {makeExecutableSchema} from 'apollo-server-micro'
+import {makeExecutableSchema} from 'apollo-server-lambda'
 import {typeDefs} from './typeDefs/local'
 import {resolvers} from './resolvers'
 
