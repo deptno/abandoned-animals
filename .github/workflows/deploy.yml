@@ -27,7 +27,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ap-northeast-2
         with:
-          ssm-path: /deptno/abandoned-animals
+          ssm-path: /deptno/abandoned-animals/dev
           format: yaml
           output: packages/aa_backend/env.dev.yml
           prefix: AA_
