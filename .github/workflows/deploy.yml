@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'CHANGELOG.md'
+      - 'deploy.yml'
 jobs:
   backend:
     runs-on: ubuntu-latest
