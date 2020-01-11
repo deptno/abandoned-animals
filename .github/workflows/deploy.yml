@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'CHANGELOG.md'
+      - '.github/workflows/deploy.yml'
 jobs:
   backend:
     runs-on: ubuntu-latest
@@ -20,8 +21,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - run: cat packages/aa_backend/env.dev.yml | cut -d ' ' -f 1
-      - uses: deptno/action-aws-ssm-to-dotenv@v1.3.0
+      - uses: deptno/action-aws-ssm-to-dotenv@v1.3.1
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -31,5 +31,6 @@ jobs:
           format: yaml
           output: packages/aa_backend/env.dev.yml
           prefix: AA_
-      - run: cat packages/aa_backend/env.dev.yml | cut -d ' ' -f 1
+      - name: count env
+        run: wc -l packages/aa_backend/env.dev.yml
       - run: yarn dev:deploy

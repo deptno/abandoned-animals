@@ -3,9 +3,7 @@ on:
   push:
     paths-ignore:
       - 'CHANGELOG.md'
-      - '.github/workflows/build.yml'
-      - '.github/workflows/deploy.yml'
-      - '.github/workflows/test.yml'
+      - '.github/workflows/*'
 jobs:
   build:
     runs-on: ubuntu-latest
