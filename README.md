@@ -43,6 +43,11 @@ s3 -> ddb: ttl: month
 yarn add -D -W 개발디펜던시
 yarn workspace @deptno/{패키지명} add 디펜던시 # 패키지명 예. aa_frontend
 ```
+### 로컬 개발 환경
+```shell script
+yarn graphql # 백엔드
+yarn next # 프론트엔드
+```
 ### 파일명 컨벤션
 카멜 케이스(camelCase)
 ### aws
