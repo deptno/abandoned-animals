@@ -20,7 +20,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - run: wc -l packages/aa_backend/env.dev.yml
+      - run: cat packages/aa_backend/env.dev.yml | cut -d ' ' -f 1
       - uses: deptno/action-aws-ssm-to-dotenv@v1.3.0
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -31,5 +31,5 @@ jobs:
           format: yaml
           output: packages/aa_backend/env.dev.yml
           prefix: AA_
-      - run: wc -l packages/aa_backend/env.dev.yml
+      - run: cat packages/aa_backend/env.dev.yml | cut -d ' ' -f 1
       - run: yarn dev:deploy
