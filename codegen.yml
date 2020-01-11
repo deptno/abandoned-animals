@@ -1,0 +1,11 @@
+overwrite: true
+schema: "packages/aa_backend/graphql/schema/schema.graphql"
+documents: "packages/aa_frontend/src/graphql/**/*.graphql"
+generates:
+  packages/aa_graphql_type/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-resolvers"
+    config:
+      contextType: ./context#Context
