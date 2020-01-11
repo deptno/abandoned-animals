@@ -17,6 +17,7 @@
     "build:packages": "tsc -p packages/aa_assert -p packages/aa_type",
     "--------------------개발": "#",
     "graphql": "tsnd packages/aa_backend/handler/graphql.local.ts",
+    "next": "cd packages/aa_frontend && next",
     "--------------------배포": "#",
     "dev:package": "cd packages/aa_backend && sls package -s dev",
     "dev:deploy": "cd packages/aa_backend && sls deploy -s dev",
@@ -31,6 +32,8 @@
     "@types/aws-lambda": "^8.10.39",
     "@types/jest": "^24.0.25",
     "@types/node": "12",
+    "@types/ramda": "^0.26.39",
+    "@types/react": "^16.9.17",
     "apollo-server": "^2.9.16",
     "babel-loader": "^8.0.6",
     "dotenv": "^8.2.0",
@@ -44,5 +47,6 @@
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.8.0-beta",
     "webpack": "^4.41.5"
-  }
+  },
+  "dependencies": {}
 }
