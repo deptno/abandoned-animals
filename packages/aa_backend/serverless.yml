@@ -41,7 +41,7 @@ provider:
         - s3:AbortMultipartUpload
         - s3:CreateBucket
       Resource: "arn:aws:s3:::*"
-  environment: ${file(./environment.yml):${self:provider.stage}}
+  environment: ${file(./env.${self:provider.stage}.yml)}
 
 package:
   indivisually: true
