@@ -1,0 +1,13 @@
+{
+  "schemaPath": "packages/aa_backend/graphql/schema/schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "local(http://localhost:4000)": {
+        "url": "http://localhost:4000",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        }
+      }
+    }
+  }
+}

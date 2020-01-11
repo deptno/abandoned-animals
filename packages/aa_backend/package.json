@@ -1,0 +1,8 @@
+{
+  "name": "@deptno/aa_backend",
+  "version": "0.0.0",
+  "dependencies": {
+    "apollo-datasource": "^0.6.4",
+    "apollo-server-lambda": "^2.9.16"
+  }
+}
