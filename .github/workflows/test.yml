@@ -1,0 +1,34 @@
+name: deploy
+on:
+  push:
+    paths:
+      - '.github/workflows/test.yml'
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: set credentials
+        run: |
+          aws configure set region ap-northeast-2
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws --profile aa configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws --profile aa configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - run: wc -l packages/aa_backend/env.dev.yml
+      - run: cat packages/aa_backend/env.dev.yml | cut -d ' ' -f 1
+      - uses: deptno/action-aws-ssm-to-dotenv@v1.3.0
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ap-northeast-2
+        with:
+          ssm-path: /deptno/abandoned-animals/dev
+          format: yaml
+          output: packages/aa_backend/env.dev.yml
+          prefix: AA_
+      - run: wc -l packages/aa_backend/env.dev.yml
+      - run: cat packages/aa_backend/env.dev.yml | cut -d ' ' -f 1
