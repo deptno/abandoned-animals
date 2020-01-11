@@ -1,14 +1,13 @@
 {
-  "name": "datalake",
+  "name": "@deptno/aa_datalake",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "date-fns": "^2.8.1",
-    "node-fetch": "^2.6.0"
-  },
-  "devDependencies": {
-    "typescript": "^3.7.4"
+    "node-fetch": "^2.6.0",
+    "@deptno/aa_assert": "*",
+    "@deptno/aa_type": "*"
   }
 }

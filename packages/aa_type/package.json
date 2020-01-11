@@ -1,0 +1,7 @@
+{
+  "name": "@deptno/aa_type",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {}
+}
