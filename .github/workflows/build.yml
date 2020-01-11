@@ -1,9 +1,16 @@
-name: tests
-on: [push]
+name: build
+on:
+  push:
+    paths:
+      - '**/*.ts'
+      - '**/*.js'
+      - '**/*.yml'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - run: yarn
+      - run: yarn build:packages
       - run: yarn test
+      - run: yarn dev:package
