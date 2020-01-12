@@ -1,9 +1,9 @@
 import {DataSource} from 'apollo-datasource'
 import {AbandonmentPublicRequest} from '@deptno/aa_type'
 import fetch from 'node-fetch'
-import {stringify} from "querystring"
+import {stringify} from 'querystring'
 
-export class AA extends DataSource {
+export class AADataSource extends DataSource {
   #endpoint = 'http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic'
   #key: string
 
