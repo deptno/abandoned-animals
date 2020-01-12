@@ -3,5 +3,5 @@ schema {
 }
 type Query {
   env: String
-  aa(first: Int = 5): Boolean!
+  aa(first: Int = 5): String
 }

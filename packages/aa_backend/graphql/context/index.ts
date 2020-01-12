@@ -1,31 +1,25 @@
-export const context = (e): Context => {
+import {APIGatewayProxyEvent} from 'aws-lambda'
+import {Context} from '@deptno/aa_graphql_type'
+
+export const context = (e): Omit<Context, 'dataSources'> => {
   const {req, event, context} = e
 
   try {
     isLambdaEvent(event)
 
     return {
-      claim: event.requestContext.identity
+      claim: event.requestContext.identity,
     }
   } catch (e) {
-    if (event) {
-    }
-    /**
-     * local
-     */
-    console.debug('local context')
-    return {
+    // local
 
+    console.debug('local context')
+
+    return {
+      claim: undefined,
     }
   }
-
 }
-
-export type Context = {
-
-}
-
-import {APIGatewayProxyEvent} from 'aws-lambda'
 
 function isLambdaEvent(event): asserts event is APIGatewayProxyEvent {
   if (!event) {
