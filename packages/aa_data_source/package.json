@@ -5,8 +5,5 @@
   "version": "0.0.0",
   "dependencies": {
     "apollo-datasource": "^0.6.4"
-  },
-  "devDependencies": {
-    "jest": "^24.9.0"
   }
 }
