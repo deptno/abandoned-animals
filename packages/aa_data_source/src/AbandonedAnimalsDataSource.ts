@@ -4,12 +4,8 @@ import {species} from './parameter'
 import {Species} from './type'
 
 export class AbandonedAnimalsDataSource extends DataSource {
-  #key: string
-
-  constructor(key: string) {
+  constructor(private key: string) {
     super()
-
-    this.#key = key
   }
 
   getAbandonedAnimals(
@@ -29,7 +25,7 @@ export class AbandonedAnimalsDataSource extends DataSource {
   ) {
 
     const params = {
-      ServiceKey: this.#key,
+      ServiceKey: this.key,
       bgnde: input.startDate,
       endde: input.endDate,
       upkind: species(input.species),
