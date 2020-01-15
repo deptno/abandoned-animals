@@ -1,4 +1,4 @@
-import {JsonResponse, xmlToJson} from '../xmlToJson'
+import {JsonResponse, xmlToJson} from './lib/xmlToJson'
 
 export const parseAbandonedAnimals: (str: string) => Promise<JsonResponse<AbandonedAnimal>> = xmlToJson
 
