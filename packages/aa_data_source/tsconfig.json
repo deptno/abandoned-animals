@@ -2,7 +2,6 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "module": "commonjs",
-    "target": "esnext",
     "moduleResolution": "node",
     "inlineSourceMap": true,
     "esModuleInterop": true,
