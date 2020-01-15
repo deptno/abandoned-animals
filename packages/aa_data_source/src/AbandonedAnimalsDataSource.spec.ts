@@ -5,11 +5,11 @@ describe('AbandonedAnimalsDataSource', () => {
 
   it('getAbandonedAnimals()', function () {
     return ds.getAbandonedAnimals({
-      startDate: '20200113',
+      startDate: '20200114',
       endDate: '20200115',
       species: 'dog',
       page: 1,
-      limit: 10,
+      limit: 9999,
     })
       .then(response => {
         console.log(response)
