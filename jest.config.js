@@ -12,5 +12,12 @@ module.exports = {
   setupFiles: [
     './jest.setup.js'
   ],
-  globals
+  globals: {
+    ...globals,
+    'ts-jest': {
+      tsConfig: {
+        target: 'es2018'
+      }
+    }
+  }
 }
