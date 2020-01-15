@@ -9,5 +9,12 @@ module.exports = {
     '__tests__/**/*.ts?(x)'
   ],
   rootDir: __dirname,
-  globals
+  globals: {
+    ...globals,
+    'ts-jest': {
+      tsConfig: {
+        target: 'es2018'
+      }
+    }
+  }
 }
