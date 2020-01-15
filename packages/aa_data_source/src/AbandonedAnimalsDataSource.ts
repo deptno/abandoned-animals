@@ -20,14 +20,15 @@ export class AbandonedAnimalsDataSource extends DataSource {
       kind?: string
       shelter?: string
       state?: string
-      neutralization?: boolean
+      neutralization?: 'yes'|'no'|'unknown'
       si?: string
       gu?: string
       page: number
       limit: number
     },
   ) {
-    return getAbandonedAnimals({
+
+    const params = {
       ServiceKey: this.#key,
       bgnde: input.startDate,
       endde: input.endDate,
@@ -37,9 +38,12 @@ export class AbandonedAnimalsDataSource extends DataSource {
       org_cd: input.gu || '',
       care_reg_no: input.shelter || '',
       state: input.state || 'notice',
-      neuter_yn: input.neutralization ? 'y' : 'n',
+      neuter_yn: input.neutralization ?? '',
       pageNo: input.page.toString(),
       numOfRows: input.limit.toString(),
-    })
+    }
+    console.debug('params:', params)
+
+    return getAbandonedAnimals(params)
   }
 }

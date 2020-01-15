@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 import {stringify} from 'querystring'
-import {const_ep_openapi_abandonment} from '../contstant'
+import {const_ep_openapi_abandonment} from '../constant'
 import {AbandonmentPublicRequest} from '@deptno/aa_type'
 
 export const getAbandonedAnimals = (input: AbandonmentPublicRequest) => {
