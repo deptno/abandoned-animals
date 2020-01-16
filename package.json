@@ -16,7 +16,7 @@
     "build": "yarn build:clean && yarn build:graphql && yarn build:packages",
     "build:clean": "rimraf packages/aa_assert/dist packages/aa_parser/dist packages/aa_data_source/dist packages/aa_type/dist",
     "build:graphql": "graphql-codegen --config codegen.yml",
-    "build:packages": "tsc -p packages/aa_assert && tsc -p packages/aa_parser && tsc -p packages/aa_type && tsc -p packages/aa_data_source && tsc -p packages/aa_datalake",
+    "build:packages": "tsc -p packages/aa_assert && tsc -p packages/aa_parser && tsc -p packages/aa_type && tsc -p packages/aa_data_source",
     "build:a": "tsc -p packages/aa_data_source",
     "--------------------개발": "#",
     "graphql": "tsnd -r dotenv/config packages/aa_backend/handler/graphql.local.ts",
