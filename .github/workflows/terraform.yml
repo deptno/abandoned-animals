@@ -1,0 +1,28 @@
+name: terraform
+on:
+  push:
+    paths:
+      - 'terraform/**/*'
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: set credentials
+        run: |
+          aws configure set region ap-northeast-2
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws --profile aa configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws --profile aa configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: terraform
+        run: |
+          cd terraform
+          terraform init
+          terraform plan -out=plan
+          terraform apply plan
+          cd -
+
+
