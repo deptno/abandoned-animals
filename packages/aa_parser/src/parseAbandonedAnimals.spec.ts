@@ -31,8 +31,6 @@ describe('AbandonedAnimalsDataSource', () => {
       expect(item.processState).toBeDefined()
       expect(item.sexCd).toBeDefined()
       expect(item.specialMark).toBeDefined()
-
-      expect(Object.values(item).every(Array.isArray)).toBeTruthy()
     })
   })
 })

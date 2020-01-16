@@ -8,6 +8,7 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: set credentials
         run: |
           aws configure set region ap-northeast-2
