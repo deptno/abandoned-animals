@@ -1,10 +1,24 @@
 import {JsonResponse, xmlToJson} from './lib/xmlToJson'
+import {compose, head, lensPath, map, mapObjIndexed, over, then} from 'ramda'
 
-export const parseAbandonedAnimals: (str: string) => Promise<JsonResponse<AbandonedAnimal>> = xmlToJson
+export const parseAbandonedAnimals: (str: string) => Promise<JsonResponse<AbandonedAnimal>> = compose(
+  then(
+    compose(
+      over(
+        lensPath(['body', 'items']),
+        map(mapObjIndexed(head))
+      ),
+    ),
+  ),
+  xmlToJson as (xml: string) => Promise<JsonResponse<AbandonedAnimal>>,
+)
 
+// todo: resultCode, resultMsg 는 헤더에 들어오는데 여기에 포함되어있는 것으로 보임, 확인해서 삭제 조치
+// todo: noticeComment 는 안들어 오는 것을 보임 확인 필요
 type AbandonedAnimal = {
 // 공고종료일		8	1	20140303	공고종료일 (YYYYMMDD)
-  noticeEdt: string // Image		100	1	http://www.animal.go.kr /files/shelter/2014/02/201403010903285.jpg	Image
+  noticeEdt: string
+// Image		100	1	http://www.animal.go.kr /files/shelter/2014/02/201403010903285.jpg	Image
   popfile: string
 // 상태		10	1	종료(입양)	상태
   processState: string
@@ -28,12 +42,12 @@ type AbandonedAnimal = {
   officetel: string
 // 특이사항		200	1	없음	특이사항
   noticeComment: string
-// 한 	numOfRows	4	1	10	한페이지 결과수
-  페이지결과수: string
-// 페이지 	pageNo	4	1	1	페이지 번호
-  번호: string
-// 전체  수	totalCount	4	1	6840	전체 결과 수
-  결과: string
+// 한 페이지결과수 4	1	10	한페이지 결과수
+  numOfRows	: string
+// 페이지 번호 4	1	1	페이지 번호
+  pageNo	: string
+// 전체 결과 수  4	1	6840	전체 결과 수
+  totalCount	: string
 // 결과코드		2	1	00	결과코드
   resultCode: string
 // 결과메세지		50	1	NORMAL SERVICE.	결과메세지
