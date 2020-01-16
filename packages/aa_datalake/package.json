@@ -6,8 +6,9 @@
   "private": true,
   "dependencies": {
     "@deptno/aa_assert": "file:../aa_assert",
+    "@deptno/aa_parser": "file:../aa_parser",
     "@deptno/aa_type": "file:../aa_type",
-    "@deptno/dynamodb": "^0.0.19",
+    "@deptno/dynamodb": "^0.0.20",
     "date-fns": "^2.9.0",
     "node-fetch": "^2.6.0"
   }
