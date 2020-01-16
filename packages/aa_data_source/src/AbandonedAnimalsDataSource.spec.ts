@@ -6,8 +6,7 @@ describe('AbandonedAnimalsDataSource', () => {
   it('getAbandonedAnimals()', function () {
     return ds.getAbandonedAnimals({
       startDate: '20200115',
-      endDate: '20200115',
-      species: 'dog',
+      endDate: '20200116',
       page: 1,
       limit: 9999,
     })
