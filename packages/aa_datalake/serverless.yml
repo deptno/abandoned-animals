@@ -1,0 +1,63 @@
+service:
+  name: aa-datalake
+
+provider:
+  name: aws
+  profile: aa
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'ap-northeast-2'}
+  runtime: nodejs12.x
+  memorySize: 128
+  logRetentionInDays: 7
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:BatchGetItem
+        - dynamodb:BatchWriteItem
+        - dynamodb:GetRecords
+        - dynamodb:GetShardIterator
+        - dynamodb:DescribeStream
+        - dynamodb:ListStreams
+      Resource: "arn:aws:dynamodb:ap-northeast-2:*:*"
+    - Effect: Allow
+      Action:
+        - lambda:InvokeFunction
+      Resource: "arn:aws:lambda:ap-northeast-2:*:*"
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+        - s3:GetObject
+        - s3:GetBucketLocation
+        - s3:ListBucket
+        - s3:ListBucketMultipartUploads
+        - s3:ListMultipartUploadParts
+        - s3:AbortMultipartUpload
+        - s3:CreateBucket
+      Resource: "arn:aws:s3:::*"
+  environment: ${file(./env.${self:provider.stage}.yml)}
+
+package:
+  indivisually: true
+
+plugins:
+  - serverless-jetpack
+  - serverless-webpack
+
+functions:
+  cronGetAbandonedAnimals:
+    description: "유기동물 데이터 크롤링"
+    handler: cron/getAbandonedAnimalsPerHour.handler
+    environment:
+      TZ: Asia/Seoul
+    events:
+      - schedule:
+          name: ${opt:stage}-cron-aa-raw-data
+          description: '유기동물 데이터를 가져오기 위해 한 시간 마다 호출 된다.'
+          rate: cron(0 * * * ? *)

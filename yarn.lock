@@ -1097,10 +1097,18 @@
 "@deptno/aa_graphql_type@file:packages/aa_graphql_type":
   version "0.0.0"
   dependencies:
-    "@deptno/aa_data_source" "file:../../../../Library/Caches/Yarn/v6/npm-@deptno-aa-graphql-type-0.0.0-6e505ec3-54bb-44ed-83c5-179adc59fc58-1579148955135/node_modules/@deptno/aa_data_source"
+    "@deptno/aa_data_source" "file:../../../../Library/Caches/Yarn/v6/npm-@deptno-aa-graphql-type-0.0.0-39fe0055-813e-4999-9914-11e06400a0ae-1579173232125/node_modules/@deptno/aa_data_source"
 
 "@deptno/aa_type@file:packages/aa_type":
   version "0.0.0"
+
+"@deptno/dynamodb@^0.0.19":
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/@deptno/dynamodb/-/dynamodb-0.0.19.tgz#e89bc56c0d247eae8babfc697879086c7626b7c0"
+  integrity sha512-SpS89dtg1LuuZF/DdT/VDWZ3iIMTAZhQy3r+CL0udyDlik+lh2jY9iJt4BHh9Os5kkOPNFJ6Sbl5kjYs44+jIw==
+  dependencies:
+    debug "^4.1.1"
+    ramda "^0.26.1"
 
 "@endemolshinegroup/cosmiconfig-typescript-loader@^1.0.0":
   version "1.0.1"
@@ -4387,10 +4395,10 @@ date-fns@^1.27.2:
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
   integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
 
-date-fns@^2.8.1:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.8.1.tgz#2109362ccb6c87c3ca011e9e31f702bc09e4123b"
-  integrity sha512-EL/C8IHvYRwAHYgFRse4MGAPSqlJVlOrhVYZ75iQBKrnv+ZedmYsgwH3t+BCDuZDXpoo07+q9j4qgSSOa7irJg==
+date-fns@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.9.0.tgz#d0b175a5c37ed5f17b97e2272bbc1fa5aec677d2"
+  integrity sha512-khbFLu/MlzLjEzy9Gh8oY1hNt/Dvxw3J6Rbc28cVoYWQaC1S3YI4xwkF9ZWcjDLscbZlY9hISMr66RFzZagLsA==
 
 dateformat@~1.0.4-1.2.3:
   version "1.0.12"
