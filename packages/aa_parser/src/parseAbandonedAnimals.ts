@@ -15,7 +15,7 @@ export const parseAbandonedAnimals: (str: string) => Promise<JsonResponse<Abando
 
 // todo: resultCode, resultMsg 는 헤더에 들어오는데 여기에 포함되어있는 것으로 보임, 확인해서 삭제 조치
 // todo: noticeComment 는 안들어 오는 것을 보임 확인 필요
-type AbandonedAnimal = {
+export type AbandonedAnimal = {
 // 공고종료일		8	1	20140303	공고종료일 (YYYYMMDD)
   noticeEdt: string
 // Image		100	1	http://www.animal.go.kr /files/shelter/2014/02/201403010903285.jpg	Image

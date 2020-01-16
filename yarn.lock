@@ -1097,15 +1097,20 @@
 "@deptno/aa_graphql_type@file:packages/aa_graphql_type":
   version "0.0.0"
   dependencies:
-    "@deptno/aa_data_source" "file:../../../../Library/Caches/Yarn/v6/npm-@deptno-aa-graphql-type-0.0.0-39fe0055-813e-4999-9914-11e06400a0ae-1579173232125/node_modules/@deptno/aa_data_source"
+    "@deptno/aa_data_source" "file:../../../../../Library/Caches/Yarn/v6/npm-@deptno-aa-graphql-type-0.0.0-9ca444aa-77be-46b2-963b-051a36f7f1d6-1579185732514/node_modules/@deptno/aa_data_source"
+
+"@deptno/aa_parser@file:packages/aa_parser":
+  version "0.0.0"
+  dependencies:
+    ramda "^0.26.1"
 
 "@deptno/aa_type@file:packages/aa_type":
   version "0.0.0"
 
-"@deptno/dynamodb@^0.0.19":
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/@deptno/dynamodb/-/dynamodb-0.0.19.tgz#e89bc56c0d247eae8babfc697879086c7626b7c0"
-  integrity sha512-SpS89dtg1LuuZF/DdT/VDWZ3iIMTAZhQy3r+CL0udyDlik+lh2jY9iJt4BHh9Os5kkOPNFJ6Sbl5kjYs44+jIw==
+"@deptno/dynamodb@^0.0.20":
+  version "0.0.20"
+  resolved "https://npm.pkg.github.com/download/@deptno/dynamodb/0.0.20/5544c1c12c0521a62b2e1581705791b26c479a2a2951ef345d474436cf0592c6#71d122f46a2bde95a351df7bc01751ef010a5fca"
+  integrity sha512-KaGtsjgmMDs2/fzXenc92faWxoD37KcfnT4PBzh8KcNBO16Y7w5f5U1TEn3A8CEjMMd8TpAFifRb1LZ/9MHvQg==
   dependencies:
     debug "^4.1.1"
     ramda "^0.26.1"
