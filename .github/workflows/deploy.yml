@@ -33,4 +33,5 @@ jobs:
           prefix: AA_
       - name: count env
         run: wc -l packages/aa_backend/env.dev.yml
-      - run: yarn dev:deploy
+      - run: yarn dev:deploy:backend
+      - run: yarn dev:deploy:datalake
