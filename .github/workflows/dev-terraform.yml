@@ -1,4 +1,4 @@
-name: dev_terraform
+name: dev-terraform
 on:
   push:
     branches:
