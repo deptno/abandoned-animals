@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'terraform/*'
+      - '.github/workflows/terraform-plan.yml'
 jobs:
   terraform:
     runs-on: ubuntu-latest
