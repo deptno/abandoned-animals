@@ -28,7 +28,7 @@ export class AbandonedAnimalsDataSource extends DataSource {
     },
   ) {
 
-    const params = {
+    return getAbandonedAnimals({
       ServiceKey: this.#key,
       bgnde: input.startDate,
       endde: input.endDate,
@@ -41,9 +41,6 @@ export class AbandonedAnimalsDataSource extends DataSource {
       neuter_yn: input.neutralization ?? '',
       pageNo: input.page.toString(),
       numOfRows: input.limit.toString(),
-    }
-    console.debug('params:', params)
-
-    return getAbandonedAnimals(params)
+    })
   }
 }

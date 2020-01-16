@@ -27,7 +27,9 @@
     "--------------------로그": "#",
     "dev:log:graphql": "cd packages/aa_backend && sls logs -t -f graphql",
     "--------------------테스트": "#",
-    "test": "jest"
+    "test": "jest",
+    "test:aa_data_source": "jest aa_data_source",
+    "test:aa_parser": "jest aa_parser"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.7.7",
