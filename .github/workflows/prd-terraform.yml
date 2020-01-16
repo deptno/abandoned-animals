@@ -1,4 +1,4 @@
-name: prd_terraform
+name: prd-terraform
 on:
   push:
     branches:
