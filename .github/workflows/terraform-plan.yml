@@ -1,4 +1,4 @@
-name: terraform
+name: terraform_plan
 on:
   push:
     paths:
@@ -22,8 +22,7 @@ jobs:
           cd terraform
           terraform init
           terraform workspace new dev
-          terraform plan -out=plan
-          terraform apply plan
+          terraform plan
           cd -
 
 
