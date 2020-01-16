@@ -1,31 +1,10 @@
 import {parseAbandonedAnimals} from './parseAbandonedAnimals'
-import {xmlToJson} from './lib/xmlToJson'
 
 describe('AbandonedAnimalsDataSource', () => {
-  it('xmlToJson()', function () {
-    /**
-     * 모든 데이터가 정의되고 아이템 내부의 모든 값은 Array 로 되어있다.
-     */
-    return xmlToJson(mocked).then(response => {
-      expect(response.header).toBeDefined()
-      expect(response.header.code).toBeDefined()
-      expect(response.header.msg).toBeDefined()
-      expect(response.body).toBeDefined()
-      expect(response.body.items).toBeDefined()
-      expect(response.body.totalCount).toBeDefined()
-      expect(response.body.pageNo).toBeDefined()
-      expect(response.body.numOfRows).toBeDefined()
-      expect(response.body.items.length).toEqual(response.body.numOfRows)
-      expect(
-        Object
-          .values(response.body.items[0] as object)
-          .every(Array.isArray),
-      ).toEqual(true)
-    })
-  })
   it('parseAbandonedAnimals()', function () {
     return parseAbandonedAnimals(mocked).then(response => {
       const [item] = response.body.items
+
 //      expect(item.noticeComment).toBeDefined()
 //      expect(Array.isArray(item.noticeComment)).toEqual(false)
 //      expect(item.resultCode).toBeDefined()
@@ -33,45 +12,27 @@ describe('AbandonedAnimalsDataSource', () => {
 //      expect(item.resultMsg).toBeDefined()
 //      expect(Array.isArray(item.resultMsg)).toEqual(false)
       expect(item.age).toBeDefined()
-      expect(Array.isArray(item.age)).toEqual(false)
       expect(item.careAddr).toBeDefined()
-      expect(Array.isArray(item.careAddr)).toEqual(false)
       expect(item.careNm).toBeDefined()
-      expect(Array.isArray(item.careNm)).toEqual(false)
       expect(item.careTel).toBeDefined()
-      expect(Array.isArray(item.careTel)).toEqual(false)
       expect(item.colorCd).toBeDefined()
-      expect(Array.isArray(item.colorCd)).toEqual(false)
       expect(item.desertionNo).toBeDefined()
-      expect(Array.isArray(item.desertionNo)).toEqual(false)
       expect(item.filename).toBeDefined()
-      expect(Array.isArray(item.filename)).toEqual(false)
       expect(item.happenDt).toBeDefined()
-      expect(Array.isArray(item.happenDt)).toEqual(false)
       expect(item.happenPlace).toBeDefined()
-      expect(Array.isArray(item.happenPlace)).toEqual(false)
       expect(item.kindCd).toBeDefined()
-      expect(Array.isArray(item.kindCd)).toEqual(false)
       expect(item.neuterYn).toBeDefined()
-      expect(Array.isArray(item.neuterYn)).toEqual(false)
       expect(item.noticeEdt).toBeDefined()
-      expect(Array.isArray(item.noticeEdt)).toEqual(false)
       expect(item.noticeNo).toBeDefined()
-      expect(Array.isArray(item.noticeNo)).toEqual(false)
       expect(item.noticeSdt).toBeDefined()
-      expect(Array.isArray(item.noticeSdt)).toEqual(false)
       expect(item.officetel).toBeDefined()
-      expect(Array.isArray(item.officetel)).toEqual(false)
       expect(item.orgNm).toBeDefined()
-      expect(Array.isArray(item.orgNm)).toEqual(false)
       expect(item.popfile).toBeDefined()
-      expect(Array.isArray(item.popfile)).toEqual(false)
       expect(item.processState).toBeDefined()
-      expect(Array.isArray(item.processState)).toEqual(false)
       expect(item.sexCd).toBeDefined()
-      expect(Array.isArray(item.sexCd)).toEqual(false)
       expect(item.specialMark).toBeDefined()
-      expect(Array.isArray(item.specialMark)).toEqual(false)
+
+      expect(Object.values(item).every(Array.isArray)).toBeTruthy()
     })
   })
 })
