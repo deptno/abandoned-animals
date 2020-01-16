@@ -1,5 +1,5 @@
 terraform {
-  backend "s3" {
+  backend s3 {
     profile = "aa"
     bucket = "deptno-tfstate"
     region = "ap-northeast-2"

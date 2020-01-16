@@ -1,4 +1,4 @@
-resource "aws_dynamodb_table" "aa" {
+resource aws_dynamodb_table aa {
   name = "${terraform.workspace}-aa"
   hash_key = "hk"
   range_key = "rk"
