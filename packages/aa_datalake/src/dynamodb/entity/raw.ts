@@ -6,12 +6,13 @@ import {const_ttl_days} from '../../constant'
 
 export class Raw implements AADocument {
   hk
-  rk = AADocumentRkEnum.raw
+  rk
   ttl
   z: Gzip<AbandonedAnimal>
 
   constructor(data: AbandonedAnimal) {
     this.hk = data.desertionNo
+    this.rk = AADocumentRkEnum.raw
     this.ttl = util.ttl(addDays(Date.now(), const_ttl_days))
     this.z = util.gzip(data)
   }

@@ -24,7 +24,7 @@ jobs:
         run: |
           cd terraform
           terraform init
-          terraform workspace new prd
+          terraform workspace select prd
           terraform plan -out=plan
           terraform apply plan
           cd -

@@ -23,7 +23,7 @@ jobs:
         run: |
           cd terraform
           terraform init
-          terraform workspace new dev
+          terraform workspace select dev
           terraform plan
           cd -
 
