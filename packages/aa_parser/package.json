@@ -2,5 +2,8 @@
   "name": "@deptno/aa_parser",
   "version": "0.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "^0.26.1"
+  }
 }
