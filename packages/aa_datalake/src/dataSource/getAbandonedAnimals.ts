@@ -3,10 +3,11 @@ import {parseAbandonedAnimals} from '@deptno/aa_parser'
 import {ds} from '../lib/ds'
 import {complement, compose, ifElse, isEmpty, map, pathOr, tap} from 'ramda'
 import {Raw} from '../dynamodb/entity/raw'
-import {AbandonedAnimal} from '@deptno/aa_parser/dist/parseAbandonedAnimals'
+import {AbandonedAnimal} from '@deptno/aa_parser'
 import {put} from '../dynamodb/put'
 
 export const getAbandonedAnimals = () => {
+  console.log(2)
   const today = new Date()
   const yesterday = addDays(today, -1)
   const startDate = format(yesterday, 'yyyyMMdd')
@@ -17,6 +18,7 @@ export const getAbandonedAnimals = () => {
   console.log(`fetch ${startDate} ~ ${endDate}`)
 
   return ds.getAbandonedAnimals({startDate, endDate, page, limit})
+    .then(tap(console.log))
     .then(parseAbandonedAnimals)
     .then(
       compose(
@@ -29,6 +31,7 @@ export const getAbandonedAnimals = () => {
         map(t => new Raw(t)),
         pathOr<AbandonedAnimal[]>([], ['body', 'items']),
         tap(log),
+        tap(() => console.log('tap')),
       ),
     )
 }
