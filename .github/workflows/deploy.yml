@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: yarn
-      - run: yarn test
       - name: set credentials
         run: |
           aws configure set region ap-northeast-2
@@ -34,5 +32,7 @@ jobs:
       - run: cp packages/aa_backend/env.dev.yml packages/aa_datalake/env.dev.yml
       - name: count env
         run: wc -l packages/aa_backend/env.dev.yml
+      - run: yarn
+      - run: yarn test
       - run: yarn dev:deploy:backend
       - run: yarn dev:deploy:datalake
