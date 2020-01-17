@@ -1,6 +1,6 @@
-export function defined(condition): asserts condition is true {
+export function defined(name: string, condition): asserts condition is true {
   if (!condition) {
-    throw new Error(`${condition} must be defined`)
+    throw new Error(`${name} must be defined`)
   }
 }
 
