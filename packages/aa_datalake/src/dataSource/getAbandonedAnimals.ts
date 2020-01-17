@@ -7,7 +7,6 @@ import {AbandonedAnimal} from '@deptno/aa_parser'
 import {put} from '../dynamodb/put'
 
 export const getAbandonedAnimals = () => {
-  console.log(2)
   const today = new Date()
   const yesterday = addDays(today, -1)
   const startDate = format(yesterday, 'yyyyMMdd')
@@ -18,8 +17,9 @@ export const getAbandonedAnimals = () => {
   console.log(`fetch ${startDate} ~ ${endDate}`)
 
   return ds.getAbandonedAnimals({startDate, endDate, page, limit})
-    .then(tap(console.log))
+    .then(tap((a: string) => console.log(a.slice(0, 100))))
     .then(parseAbandonedAnimals)
+    .then(tap(console.log))
     .then(
       compose(
         ifElse(
