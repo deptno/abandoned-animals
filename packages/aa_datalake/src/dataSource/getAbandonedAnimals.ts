@@ -35,7 +35,7 @@ export const getAbandonedAnimals = () => {
 
 const log = (data): void => {
   if (data.header.code === '00') {
-    console.info(`${data.body.items}/${data.body.totalCount}`)
+    console.info(`${data.body.items.length}(${data.body.numOfRows})/${data.body.totalCount}`)
   } else {
     // todo: 알림 필요
     console.error('header', data.header)

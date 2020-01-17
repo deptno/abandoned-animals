@@ -54,6 +54,7 @@ functions:
   cronGetAbandonedAnimals:
     description: "유기동물 데이터 크롤링"
     handler: cron/getAbandonedAnimalsPerHour.handler
+    memorySize: 256
     timeout: 60
     environment:
       TZ: Asia/Seoul
