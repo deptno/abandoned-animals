@@ -29,7 +29,16 @@ jobs:
           format: yaml
           output: packages/aa_backend/env.dev.yml
           prefix: AA_
-      - run: cp packages/aa_backend/env.dev.yml packages/aa_datalake/env.dev.yml
+      - uses: deptno/action-aws-ssm-to-dotenv@v1.3.1
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ap-northeast-2
+        with:
+          ssm-path: /deptno/abandoned-animals/dev
+          format: yaml
+          output: packages/aa_datalake/env.dev.yml
+          prefix: AA_
       - name: count env
         run: wc -l packages/aa_backend/env.dev.yml
       - run: yarn
