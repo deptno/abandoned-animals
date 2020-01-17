@@ -31,6 +31,7 @@ jobs:
           format: yaml
           output: packages/aa_backend/env.dev.yml
           prefix: AA_
+      - run: cp packages/aa_backend/env.dev.yml packages/aa_datalake/env.dev.yml
       - name: count env
         run: wc -l packages/aa_backend/env.dev.yml
       - run: yarn dev:deploy:backend
