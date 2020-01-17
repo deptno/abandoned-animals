@@ -17,9 +17,7 @@ export const getAbandonedAnimals = () => {
   console.log(`fetch ${startDate} ~ ${endDate}`)
 
   return ds.getAbandonedAnimals({startDate, endDate, page, limit})
-    .then(tap((a: string) => console.log(a.slice(0, 100))))
     .then(parseAbandonedAnimals)
-    .then(tap(console.log))
     .then(
       compose(
         ifElse(
@@ -31,7 +29,6 @@ export const getAbandonedAnimals = () => {
         map(t => new Raw(t)),
         pathOr<AbandonedAnimal[]>([], ['body', 'items']),
         tap(log),
-        tap(() => console.log('tap')),
       ),
     )
 }
