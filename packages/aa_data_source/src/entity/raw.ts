@@ -1,7 +1,7 @@
 import {AADocument, AADocumentRkEnum} from './interface'
 import {DynamoDbKey, Gzip, util} from '@deptno/dynamodb'
 import {addDays, format} from 'date-fns'
-import {const_ttl_days} from '../../constant'
+import {const_ttl_days} from '@deptno/aa_datalake/src/constant'
 import {AbandonedAnimal} from '@deptno/aa_parser'
 
 export class Raw implements AADocument {

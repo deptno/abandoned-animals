@@ -1,8 +1,8 @@
 import {DataSource} from 'apollo-datasource'
 import {Species} from './type'
-import {createDynamoDB, util} from '@deptno/dynamodb'
+import {createDynamoDB} from '@deptno/dynamodb'
 import {DocumentClient} from 'aws-sdk/clients/dynamodb'
-import {Raw} from '@deptno/aa_datalake/src/dynamodb/entity/raw'
+import {Raw} from './entity'
 
 export class AADynamoDBDataSource extends DataSource {
   #ddb: ReturnType<typeof createDynamoDB>
@@ -17,15 +17,18 @@ export class AADynamoDBDataSource extends DataSource {
       first: number
       last?: string
       species?: Species
+      after?: string
+      before?: string
       page?: number
       limit?: number
     },
   ) {
+    //todo: before, scanforward false
     return this.#ddb.scan<Raw>({
       TableName: 'dev-aa',
       Limit: input.first,
+      ExclusiveStartKey: (input.after || input.before) as any,
       ReturnConsumedCapacity: 'TOTAL'
     })
-      .then(rs => rs.map(r => util.unGzip(r.z)))
   }
 }

@@ -7,8 +7,9 @@
   "dependencies": {
     "@deptno/aa_assert": "file:../aa_assert",
     "@deptno/aa_parser": "file:../aa_parser",
+    "@deptno/aa_data_source": "file:../aa_data_source",
     "@deptno/aa_type": "file:../aa_type",
-    "@deptno/dynamodb": "^0.0.21",
+    "@deptno/dynamodb": "^0.1.0",
     "date-fns": "^2.9.0",
     "node-fetch": "^2.6.0"
   }

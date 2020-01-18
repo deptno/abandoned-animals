@@ -60,7 +60,6 @@
     "jest-fetch-mock": "^3.0.1",
     "serverless": "^1.60.5",
     "serverless-jetpack": "^0.7.0",
-    "serverless-webpack": "^5.3.1",
     "ts-jest": "^24.2.0",
     "ts-node": "^8.6.1",
     "ts-node-dev": "^1.0.0-pre.44",

@@ -4,23 +4,34 @@ schema {
 type Query {
   env: String
   aa(
+    species: Species
     first: Int = 20
     last: Int
-    species: Species
+    after: String
+    before: String
   ): AbandonedAnimalConnection
 }
 type AbandonedAnimalConnection {
   edges: [AbandonedAnimalEdge!]!
+  pageInfo: PageInfo
+  totalCount: Int
+}
+type PageInfo {
+  startCursor: String
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
 }
 type AbandonedAnimalEdge {
   node: AbandonedAnimal!
+  cursor: String
 }
 type AbandonedAnimal {
   "유기번호"
   id: ID
   "공고종료일		8	1	20140303	공고종료일 (YYYYMMDD)"
   noticeEdt: String
-  "Image		100	1	http://www.animal.go.kr /files/shelter/2014/02/201403010903285.jpg	Image"
+  "Image		100	1	http://www.animal.go.kr/files/shelter/2014/02/201403010903285.jpg	Image"
   popfile: String
   "상태		10	1	종료(입양)	상태"
   processState: String
@@ -46,7 +57,7 @@ type AbandonedAnimal {
   noticeComment: String
   "한 페이지결과수 4	1	10	한페이지 결과수"
   desertionNo: String
-  "Thumbnail_Image		100	1	http://www.animal.go.kr /files/shelter/2014/02/201403010903285_s.jpg	Thumbnail Image"
+  "Thumbnail_Image		100	1	http://www.animal.go.kr/files/shelter/2014/02/201403010903285_s.jpg	Thumbnail Image"
   filename: String
   "접수일		8	1	20140301	접수일 (YYYYMMDD)"
   happenDt: String

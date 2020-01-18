@@ -2,7 +2,7 @@ import {addDays, format} from 'date-fns'
 import {parseAbandonedAnimals} from '@deptno/aa_parser'
 import {ds} from '../lib/ds'
 import {complement, compose, ifElse, isEmpty, map, pathOr, tap} from 'ramda'
-import {Raw} from '../dynamodb/entity/raw'
+import {Raw} from '../../../aa_data_source/src/entity/entity/raw'
 import {AbandonedAnimal} from '@deptno/aa_parser'
 import {put} from '../dynamodb/put'
 
