@@ -3,8 +3,6 @@ import fetch from 'node-fetch'
 import {pick} from 'ramda'
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
-  console.log('body', req.body, typeof req.body)
-
   fetch(
     'http://localhost:4000',
     {

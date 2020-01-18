@@ -5,6 +5,7 @@
     "inlineSourceMap": true,
     "esModuleInterop": true,
     "strictNullChecks": true,
+    "jsx": "preserve",
     "noEmit": true
   }
 }
