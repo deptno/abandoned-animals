@@ -10,17 +10,15 @@
     "packages/*"
   ],
   "scripts": {
-    "--------------------훅": "#",
-    "postinstall": "yarn build",
+    "--------------------개발": "#",
+    "graphql": "tsnd -r dotenv/config packages/aa_backend/handler/graphql.local.ts",
+    "next": "cd packages/aa_frontend && next",
     "--------------------빌드": "#",
     "build": "yarn build:clean && yarn build:graphql && yarn build:packages",
     "build:clean": "rimraf packages/aa_assert/dist packages/aa_parser/dist packages/aa_data_source/dist packages/aa_type/dist",
     "build:graphql": "graphql-codegen --config codegen.yml",
     "build:packages": "tsc -p packages/aa_assert && tsc -p packages/aa_type && tsc -p packages/aa_parser && tsc -p packages/aa_data_source",
     "build:a": "tsc -p packages/aa_data_source",
-    "--------------------개발": "#",
-    "graphql": "tsnd -r dotenv/config packages/aa_backend/handler/graphql.local.ts",
-    "next": "cd packages/aa_frontend && next",
     "--------------------배포": "#",
     "dev:package:backend": "cd packages/aa_backend && sls package -s dev",
     "dev:deploy:backend": "cd packages/aa_backend && sls deploy -s dev",
@@ -38,7 +36,9 @@
     "test:aa_parser": "jest aa_parser",
     "--------------------기타": "#",
     "ws:remove:serverless-webpack": "yarn remove serverless-webpack -W",
-    "ws:add:serverless-webpack": "yarn add serverless-webpack -D -W"
+    "ws:add:serverless-webpack": "yarn add serverless-webpack -D -W",
+    "--------------------훅": "#",
+    "postinstall": "yarn build"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.7.7",

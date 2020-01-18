@@ -53,6 +53,7 @@ yarn next # 프론트엔드
 ### aws
 ```shell script
 $ aws configure --profile aa                                                                       
+
 AWS Access Key ID [None]: ********************
 AWS Secret Access Key [None]: ****************************************
 Default region name [None]: ap-northeast-2
@@ -60,7 +61,9 @@ Default output format [None]: json
 ```
 
 ## 테스트
-[https://wlfoc30xcj.execute-api.ap-northeast-2.amazonaws.com/dev/graphql](플레이그라운드) 접속 후 URL 패스에 `dev` 가 빠져있는데 이를 추가해야 하므로 아래 주소를 붙여 넣는다.
+[플레이그라운드](https://wlfoc30xcj.execute-api.ap-northeast-2.amazonaws.com/dev/graphql)
+
+⚠️ 접속 후 URL 패스에 `dev` 가 빠져있는데 이를 추가해야 하므로 아래 주소를 붙여 넣는다.
 
 `https://wlfoc30xcj.execute-api.ap-northeast-2.amazonaws.com/dev/graphql`
 
