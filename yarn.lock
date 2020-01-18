@@ -1097,7 +1097,7 @@
 "@deptno/aa_graphql_type@file:packages/aa_graphql_type":
   version "0.0.0"
   dependencies:
-    "@deptno/aa_data_source" "file:../../../../../Library/Caches/Yarn/v6/npm-@deptno-aa-graphql-type-0.0.0-f879c940-8b64-409e-9384-312a9483df72-1579362331621/node_modules/@deptno/aa_data_source"
+    "@deptno/aa_data_source" "file:../../../../../Library/Caches/Yarn/v6/npm-@deptno-aa-graphql-type-0.0.0-2aed36c6-28b9-42dc-b2a4-52accdcda5e7-1579372696011/node_modules/@deptno/aa_data_source"
 
 "@deptno/aa_parser@file:packages/aa_parser":
   version "0.0.0"
@@ -1109,7 +1109,7 @@
 
 "@deptno/dynamodb@^0.1.0":
   version "0.1.0"
-  resolved "https://npm.pkg.github.com/download/@deptno/dynamodb/0.1.0/e898d470047924f2b31bb8b4c81173e20a103d8d07b6969b86ffdaf987a6806f#3eaff784e486896d849965ed58b3da35527dd288"
+  resolved "https://registry.yarnpkg.com/@deptno/dynamodb/-/dynamodb-0.1.0.tgz#3eaff784e486896d849965ed58b3da35527dd288"
   integrity sha512-StJAV8grCOh9ekRrD3cMxI7qQq7Pfh5ppK7ntGEr46PQHI/Z/z98w9/zieYzCu2uaVCF5i5K/7tRzX5+lg1V/Q==
   dependencies:
     debug "^4.1.1"
