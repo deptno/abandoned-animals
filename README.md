@@ -67,8 +67,8 @@ Default output format [None]: json
 
 `https://wlfoc30xcj.execute-api.ap-northeast-2.amazonaws.com/dev/graphql`
 
-## 검색 요구사항
-- [ ] **@todo**
+## Query
+- [x] `aa`, 로우레벨 데이터 접근
 
 ## 데이터 소스
 https://www.data.go.kr/dataset/15001096/openapi.do
