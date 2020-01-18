@@ -5,7 +5,7 @@ type Query {
   env: String
   aa(
     species: Species
-    first: Int = 20
+    first: Int = 5
     last: Int
     after: String
     before: String

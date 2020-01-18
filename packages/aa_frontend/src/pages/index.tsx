@@ -2,52 +2,39 @@ import React, {useEffect, useState} from 'react'
 import {NextPage} from 'next'
 import {graphql} from '../lib/graphql'
 import {AbandonedAnimal} from '@deptno/aa_graphql_type'
+import {last} from 'ramda'
 
 export const HomePage: NextPage<Props> = props => {
-  const [data, setData] = useState<AbandonedAnimal[]>([])
+  const [data, setData] = useState<{ node: AbandonedAnimal, cursor?: string }[]>([])
+  const [cursor, setCursor] = useState<string>()
+  const handleMoreButton = () => {
+    getAA({
+      first: 1,
+      after: cursor,
+    })
+      .then(response => [...data, ...response.aa.edges])
+      .then(setData)
+  }
 
   useEffect(() => {
-    graphql(/* language=graphql */ `
-      query {
-        aa(first: 2) {
-          edges {
-            node {
-              id
-              age
-              careAddr
-              careNm
-              careTel
-              colorCd
-              desertionNo
-              filename
-              happenDt
-              happenPlace
-              kindCd
-              neuterYn
-              noticeComment
-              noticeNo
-              noticeSdt
-              noticeEdt
-              officetel
-              orgNm
-              popfile
-              processState
-              sexCd
-              specialMark
-              weight
-            }
-          }
-        }
-      }`)
-      .then(data => data.aa.edges.map(e => e.node))
+    getAA({first: 5})
+      .then(data => data.aa.edges)
       .then(setData)
   }, [])
+  useEffect(() => {
+    const lastItem = last(data)
+    if (lastItem) {
+      if (lastItem.cursor) {
+        setCursor(lastItem.cursor)
+      }
+    }
+  }, [data])
 
   return (
-    <div className="pa3">
-      /
-      <div className="mv3">
-        {data.map(d => {
+    <div className="mt3">
+      <div className="ph3">/</div>
+      <div className="pa3">
+        {data.map(({node: d}) => {
           return (
             <div className="flex flex-column justify-start lh-copy outline pa3 mv3" key={d.desertionNo!}>
               <span className="hover-bg-light-gray">유기번호: {d.desertionNo}</span>
@@ -76,10 +63,52 @@ export const HomePage: NextPage<Props> = props => {
           )
         })}
       </div>
+      <div className="h3"/>
+      <footer className="w-100 fixed bottom-0 flex justify-center items-center h3 bg-white bt b--blue bw1">
+        {cursor &&
+        <a className="pointer db" onClick={handleMoreButton}>더 가져오기({cursor})</a>
+        }
+      </footer>
     </div>
   )
 }
 
 export default HomePage
 
+const getAA = (args?: { first?, after? }) => graphql(
+  /* language=graphql */ `
+    query ($first: Int!, $after: String) {
+      aa(first: $first, after: $after) {
+        edges {
+          cursor
+          node {
+            id
+            age
+            careAddr
+            careNm
+            careTel
+            colorCd
+            desertionNo
+            filename
+            happenDt
+            happenPlace
+            kindCd
+            neuterYn
+            noticeComment
+            noticeNo
+            noticeSdt
+            noticeEdt
+            officetel
+            orgNm
+            popfile
+            processState
+            sexCd
+            specialMark
+            weight
+          }
+        }
+      }
+    }`,
+  args,
+)
 type Props = {}

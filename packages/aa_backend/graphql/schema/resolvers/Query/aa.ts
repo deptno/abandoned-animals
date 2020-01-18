@@ -5,6 +5,8 @@ import {util} from '@deptno/dynamodb'
 import {Raw} from '@deptno/aa_data_source/dist/entity'
 
 export const aa: QueryResolvers['aa'] = async (_, args, context) => {
+  console.log(args)
+
   checkPageArgs(args)
 
   return context.dataSources.aa
