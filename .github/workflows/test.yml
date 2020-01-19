@@ -32,6 +32,7 @@ jobs:
           prefix: AA_
       - run: wc -l packages/aa_backend/env.dev.yml
       - run: cat packages/aa_backend/env.dev.yml | cut -d ' ' -f 1
+      - run: yarn
       - name: build frontend
         run: yarn dev:build:frontend
         env:
