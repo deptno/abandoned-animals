@@ -39,3 +39,5 @@ jobs:
           AA_GRAPHQL_URL: https://wlfoc30xcj.execute-api.ap-northeast-2.amazonaws.com/dev/graphql
       - name: check html
         run: cat packages/aa_frontend/out/index.html
+
+

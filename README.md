@@ -1,5 +1,11 @@
 # 유기동물조회
 
+![](https://github.com/deptno/abandoned-animals/workflows/test/badge.svg)
+![](https://github.com/deptno/abandoned-animals/workflows/build/badge.svg)
+![](https://github.com/deptno/abandoned-animals/workflows/deploy/badge.svg)
+![](https://github.com/deptno/abandoned-animals/workflows/dev-terraform/badge.svg)
+![](https://github.com/deptno/abandoned-animals/workflows/prd-terraform/badge.svg)
+
 ## 흐름
 ```text
  ┌──────┐          ┌──────────┐          ┌──┐          ┌───┐
