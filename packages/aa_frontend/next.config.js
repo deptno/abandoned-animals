@@ -1,6 +1,8 @@
 const [_, assetPrefix] = (process.env.GITHUB_REPOSITORY || '').split('/')
 const config = {
-  env: process.env.AA_GRAPHQL_URL || '/api/graphql',
+  env: {
+    AA_GRAPHQL_URL: process.env.AA_GRAPHQL_URL || '/api/graphql'
+  },
   assetPrefix: `/${assetPrefix}`
 }
 
