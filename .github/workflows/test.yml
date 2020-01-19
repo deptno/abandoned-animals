@@ -32,3 +32,7 @@ jobs:
           prefix: AA_
       - run: wc -l packages/aa_backend/env.dev.yml
       - run: cat packages/aa_backend/env.dev.yml | cut -d ' ' -f 1
+      - name: build frontend
+        run: yarn dev:build:frontend
+        env:
+          AA_GRAPHQL_URL: https://wlfoc30xcj.execute-api.ap-northeast-2.amazonaws.com/dev/graphql
