@@ -37,3 +37,4 @@ jobs:
         run: yarn dev:build:frontend
         env:
           AA_GRAPHQL_URL: https://wlfoc30xcj.execute-api.ap-northeast-2.amazonaws.com/dev/graphql
+      - run: cat packages/aa_frontend/out/index.html
