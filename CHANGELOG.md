@@ -1,7 +1,7 @@
 ### 2020.01.19
 - GraphQL 데이터 제공 시작 `aa` pageinfo 인자 제공
-- 프론트엔드 배포테스트 https://deptno.github.io/abaondoned-animals
-- https://deptno.github.io/abaondoned-animals
+- [프론트엔드 배포](https://deptno.github.io/abaondoned-animals)
+- 유기 동물 저장시 이미 저장된 동물 정책 변경, overwrite -> filter
 ### 2020.01.18
 - GraphQL 데이터 제공 시작 `aa`
 ### 2020.01.17
