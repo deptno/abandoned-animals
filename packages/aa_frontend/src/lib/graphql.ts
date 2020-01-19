@@ -1,8 +1,9 @@
 import fetch from 'isomorphic-unfetch'
+import {const_graphql_url} from '../constant'
 
 export const graphql = (query: string, variables?: any) => {
   return fetch(
-    '/api/graphql',
+    const_graphql_url,
     {
       method: 'post',
       headers: {

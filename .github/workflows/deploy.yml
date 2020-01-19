@@ -45,3 +45,15 @@ jobs:
       - run: yarn test
       - run: yarn dev:deploy:backend
       - run: yarn dev:deploy:datalake
+      - name: build frontend
+        run: yarn dev:build:frontend
+        env:
+          AA_GRAPHQL_URL: https://wlfoc30xcj.execute-api.ap-northeast-2.amazonaws.com/dev/graphql
+      - name: deploy frontend
+        uses: peaceiris/actions-gh-pages@v2
+        with:
+          forceOrphan: true
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./packages/aa_frontend/out
