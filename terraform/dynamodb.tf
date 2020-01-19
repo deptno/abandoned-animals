@@ -4,6 +4,15 @@ resource aws_dynamodb_table aa {
   range_key = "rk"
   billing_mode = "PAY_PER_REQUEST"
 
+  global_secondary_index {
+    name = "rkT"
+    hash_key = "rk"
+    range_key = "t"
+    projection_type = "ALL"
+    write_capacity = 1
+    read_capacity = 5
+  }
+
   ttl {
     attribute_name = "ttl"
     enabled        = true
@@ -15,6 +24,10 @@ resource aws_dynamodb_table aa {
   }
   attribute {
     name = "rk"
+    type = "S"
+  }
+  attribute {
+    name = "t"
     type = "S"
   }
 }
