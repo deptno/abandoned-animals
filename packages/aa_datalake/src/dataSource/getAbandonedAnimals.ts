@@ -1,11 +1,12 @@
 import {addDays, format} from 'date-fns'
 import {AbandonedAnimal, parseAbandonedAnimals} from '@deptno/aa_parser'
 import {ds} from '../lib/ds'
-import {complement, compose, ifElse, isEmpty, map, pathOr, tap} from 'ramda'
+import {complement, compose, filter, ifElse, isEmpty, map, pathOr, tap} from 'ramda'
 import {put} from '../dynamodb/put'
 import {Raw} from '@deptno/aa_data_source/dist/entity'
+import {getRegisteredAnimals} from '../dynamodb/getRegisteredAnimals'
 
-export const getAbandonedAnimals = () => {
+export const getAbandonedAnimals = async () => {
   const today = new Date()
   const yesterday = addDays(today, -1)
   const startDate = format(yesterday, 'yyyyMMdd')
@@ -15,17 +16,25 @@ export const getAbandonedAnimals = () => {
 
   console.log(`fetch ${startDate} ~ ${endDate}`)
 
+  const registeredAnimals: string[] = await getRegisteredAnimals({startDate, endDate})
+
+  console.log(`registered animals ${registeredAnimals.length}`)
+
+
   return ds.getAbandonedAnimals({startDate, endDate, page, limit})
     .then(parseAbandonedAnimals)
     .then(
       compose(
         ifElse(
           complement(isEmpty),
-          put,
-          _ => console.info('데이터 없음')
+          compose(
+            wcu => console.log({wcu}),
+            put
+          ),
+          _ => console.info('데이터 없음'),
         ),
-        // todo: get > filter -> put 을 통해 wcu 를 낮추는게 가치가 있는지 추후 검토
-        map(t => new Raw(t)),
+        map<AbandonedAnimal, Raw>((t) => new Raw(t)),
+        filter(a => registeredAnimals.includes(a.desertionNo)),
         pathOr<AbandonedAnimal[]>([], ['body', 'items']),
         tap(log),
       ),
