@@ -1,7 +1,7 @@
 import {addDays, format} from 'date-fns'
 import {AbandonedAnimal, parseAbandonedAnimals} from '@deptno/aa_parser'
 import {ds} from '../lib/ds'
-import {complement, compose, filter, ifElse, isEmpty, map, pathOr, tap} from 'ramda'
+import {complement, compose, filter, ifElse, isEmpty, map, pathOr, tap, then} from 'ramda'
 import {put} from '../dynamodb/put'
 import {Raw} from '@deptno/aa_data_source/dist/entity'
 import {getRegisteredAnimals} from '../dynamodb/getRegisteredAnimals'
@@ -28,7 +28,7 @@ export const getAbandonedAnimals = async () => {
         ifElse(
           complement(isEmpty),
           compose(
-            wcu => console.log({wcu}),
+            then(wcu => console.log({wcu})),
             put
           ),
           _ => console.info('데이터 없음'),
