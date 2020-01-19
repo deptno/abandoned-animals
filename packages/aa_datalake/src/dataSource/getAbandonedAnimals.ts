@@ -1,10 +1,9 @@
 import {addDays, format} from 'date-fns'
-import {parseAbandonedAnimals} from '@deptno/aa_parser'
+import {AbandonedAnimal, parseAbandonedAnimals} from '@deptno/aa_parser'
 import {ds} from '../lib/ds'
 import {complement, compose, ifElse, isEmpty, map, pathOr, tap} from 'ramda'
-import {Raw} from '../../../aa_data_source/src/entity/entity/raw'
-import {AbandonedAnimal} from '@deptno/aa_parser'
 import {put} from '../dynamodb/put'
+import {Raw} from '@deptno/aa_data_source/dist/entity'
 
 export const getAbandonedAnimals = () => {
   const today = new Date()

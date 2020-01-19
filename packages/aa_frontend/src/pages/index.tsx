@@ -66,7 +66,10 @@ export const HomePage: NextPage<Props> = props => {
       <div className="h3"/>
       <footer className="w-100 fixed bottom-0 flex justify-center items-center h3 bg-white bt b--blue bw1">
         {cursor &&
-        <a className="pointer db" onClick={handleMoreButton}>더 가져오기({cursor})</a>
+        <a className="pointer db flex flex-column items-center" onClick={handleMoreButton}>
+          <span className="dib">더 가져오기</span>
+          <span className="dn dib-ns">({cursor})</span>
+        </a>
         }
       </footer>
     </div>

@@ -9,8 +9,6 @@ resource aws_dynamodb_table aa {
     hash_key = "rk"
     range_key = "t"
     projection_type = "ALL"
-    write_capacity = 1
-    read_capacity = 5
   }
 
   ttl {
