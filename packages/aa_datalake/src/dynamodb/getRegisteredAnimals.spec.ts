@@ -1,7 +1,6 @@
 import {getRegisteredAnimals} from './getRegisteredAnimals'
 
-
-xdescribe('real', function () {
+describe.skip('real', function () {
   describe('dynamodb', function () {
     it('getRegisteredAnimals()', function () {
       return getRegisteredAnimals({

@@ -1,8 +1,8 @@
 import {AbandonedAnimalsDataSource} from './AbandonedAnimalsDataSource'
 
-xdescribe('real', () => {
+describe.skip('real', () => {
   describe('data.go.kr', () => {
-    describe('AbandonedAnimalsDataSource()', () => {
+    describe('AbandonedAnimalsDataSource', () => {
       const ds = new AbandonedAnimalsDataSource(process.env.AA_OPENAPI_KEY!)
 
       it('getAbandonedAnimals()', function () {
