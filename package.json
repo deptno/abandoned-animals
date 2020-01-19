@@ -18,7 +18,7 @@
     "build:clean": "rimraf packages/aa_assert/dist packages/aa_parser/dist packages/aa_data_source/dist packages/aa_type/dist",
     "build:graphql": "graphql-codegen --config codegen.yml",
     "build:packages": "tsc -p packages/aa_assert && tsc -p packages/aa_type && tsc -p packages/aa_parser && tsc -p packages/aa_data_source",
-    "dev:build:frontend": "cd packages/aa_frontend && next build && next export && touch ./packages/aa_frontend/out/.nojekyll",
+    "dev:build:frontend": "cd packages/aa_frontend && next build && next export && touch out/.nojekyll",
     "--------------------배포": "#",
     "dev:package:backend": "cd packages/aa_backend && sls package -s dev",
     "dev:deploy:backend": "cd packages/aa_backend && sls deploy -s dev",
