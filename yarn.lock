@@ -1094,11 +1094,12 @@
   dependencies:
     "@deptno/dynamodb" "^0.1.0"
     apollo-datasource "^0.6.4"
+    date-fns "^2.9.0"
 
 "@deptno/aa_graphql_type@file:packages/aa_graphql_type":
   version "0.0.0"
   dependencies:
-    "@deptno/aa_data_source" "file:../../../../../Library/Caches/Yarn/v6/npm-@deptno-aa-graphql-type-0.0.0-3535453a-1071-49aa-9998-2d9cb4276b51-1579372986579/node_modules/@deptno/aa_data_source"
+    "@deptno/aa_data_source" "file:../../../../../Library/Caches/Yarn/v6/npm-@deptno-aa-graphql-type-0.0.0-1c79584d-4312-40eb-8fd6-f0c7f6781a6a-1579527468284/node_modules/@deptno/aa_data_source"
 
 "@deptno/aa_parser@file:packages/aa_parser":
   version "0.0.0"

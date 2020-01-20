@@ -5,6 +5,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@deptno/dynamodb": "^0.1.0",
-    "apollo-datasource": "^0.6.4"
+    "apollo-datasource": "^0.6.4",
+    "date-fns": "^2.9.0"
   }
 }

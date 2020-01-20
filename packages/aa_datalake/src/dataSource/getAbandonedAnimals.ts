@@ -13,13 +13,10 @@ export const getAbandonedAnimals = async () => {
   const endDate = format(today, 'yyyyMMdd')
   const page = 1
   const limit = 9999
-
-  console.log(`fetch ${startDate} ~ ${endDate}`)
-
   const registeredAnimals: string[] = await getRegisteredAnimals({startDate, endDate})
 
+  console.log(`fetch ${startDate} ~ ${endDate}`)
   console.log(`registered animals ${registeredAnimals.length}`)
-
 
   return ds.getAbandonedAnimals({startDate, endDate, page, limit})
     .then(parseAbandonedAnimals)
