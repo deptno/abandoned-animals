@@ -38,6 +38,7 @@ export class AADynamoDBDataSource extends DataSource {
         ':h': AADocumentRkEnum.raw,
       },
       ExclusiveStartKey: (input.after || input.before) as any,
+      ScanIndexForward: false,
       Limit: input.first,
       ReturnConsumedCapacity: 'TOTAL'
     })

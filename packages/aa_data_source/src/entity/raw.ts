@@ -8,8 +8,8 @@ export class Raw implements AADocument {
   static key: { [key: string]: DynamoDbKey<{ rk: AADocumentRkEnum, createdAt: Date | string }> } = {
     t: util.createKey(
       ['rk', 'createdAt'], {
-        rk: (t) => t as AADocumentRkEnum.raw ,
-        createdAt: (t) =>  new Date(t),
+        rk: (t) => t as AADocumentRkEnum.raw,
+        createdAt: (t) => new Date(t),
       },
     ),
   }
@@ -30,7 +30,7 @@ export class Raw implements AADocument {
     this.createdAt = now.toISOString()
     this.t = Raw.key.t.stringify({
       rk: this.rk,
-      createdAt: format(now, 'yyyy-MM-dd\'T\'HH:mmxx')
+      createdAt: format(now, 'yyyy-MM-dd\'T\'HH:mmxx'),
     })
   }
 }
