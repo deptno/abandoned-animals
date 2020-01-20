@@ -70,4 +70,4 @@ functions:
       - schedule:
           name: ${opt:stage}-cron-aa-raw-data-weekends
           description: '유기동물 데이터를 가져온다, 주말'
-          rate: cron(0 */4 * * SUN,SAT *)
+          rate: cron(0 0/4 * * SUN,SAT *)
