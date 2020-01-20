@@ -61,5 +61,13 @@ functions:
     events:
       - schedule:
           name: ${opt:stage}-cron-aa-raw-data
-          description: '유기동물 데이터를 가져오기 위해 한 시간 마다 호출 된다.'
-          rate: cron(0 * * * ? *)
+          description: '유기동물 데이터를 가져온다, 평일 피크'
+          rate: cron(0/10 0-9 * * MON-FRI *)
+      - schedule:
+          name: ${opt:stage}-cron-aa-raw-data
+          description: '유기동물 데이터를 가져온다, 평일 일반'
+          rate: cron(0 10-23 * * MON-FRI *)
+      - schedule:
+          name: ${opt:stage}-cron-aa-raw-data
+          description: '유기동물 데이터를 가져온다, 주말'
+          rate: cron(0 */4 * * SUN,SAT *)
