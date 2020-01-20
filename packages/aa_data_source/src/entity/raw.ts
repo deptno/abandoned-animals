@@ -1,6 +1,6 @@
 import {AADocument, AADocumentRkEnum} from './interface'
 import {DynamoDbKey, Gzip, util} from '@deptno/dynamodb'
-import {addDays} from 'date-fns'
+import {addDays, parse} from 'date-fns'
 import {AbandonedAnimal} from '@deptno/aa_parser'
 import {format} from 'date-fns'
 
@@ -25,12 +25,19 @@ export class Raw implements AADocument {
 
     this.hk = data.desertionNo
     this.rk = AADocumentRkEnum.raw
-    this.ttl = util.ttl(addDays(new Date(data.noticeEdt), 1))
-    this.z = util.gzip(data)
     this.createdAt = now.toISOString()
+    this.ttl = util.ttl(
+      addDays(
+        parse(`${data.noticeEdt}+0900`, 'yyyyMMddxx', now),
+        1,
+      ),
+    )
+    this.z = util.gzip(data)
     this.t = Raw.key.t.stringify({
       rk: this.rk,
-      createdAt: format(now, 'yyyy-MM-dd\'T\'HH:mmxx'),
+      createdAt: format(now, yyyyMMDdTHHMmxx)
     })
   }
 }
+
+const yyyyMMDdTHHMmxx = 'yyyy-MM-dd\'T\'HH:mmxx'
