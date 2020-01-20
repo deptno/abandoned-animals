@@ -2,7 +2,9 @@
 
 ![](https://github.com/deptno/abandoned-animals/workflows/test/badge.svg)
 ![](https://github.com/deptno/abandoned-animals/workflows/build/badge.svg)
-![](https://github.com/deptno/abandoned-animals/workflows/deploy/badge.svg)
+![](https://github.com/deptno/abandoned-animals/workflows/deploy-datalake/badge.svg)
+![](https://github.com/deptno/abandoned-animals/workflows/deploy-backend/badge.svg)
+![](https://github.com/deptno/abandoned-animals/workflows/deploy-frontend/badge.svg)
 ![](https://github.com/deptno/abandoned-animals/workflows/dev-terraform/badge.svg)
 ![](https://github.com/deptno/abandoned-animals/workflows/prd-terraform/badge.svg)
 

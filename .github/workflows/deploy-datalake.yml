@@ -1,11 +1,11 @@
-name: deploy
+name: deploy-datalake
 on:
   push:
     branches:
       - master
     paths:
-      - 'CHANGELOG.md'
-      - '.github/workflows/deploy.yml'
+      - 'CHANGELOG.datalake.md'
+      - '.github/workflows/deploy-datalake.yml'
 jobs:
   backend:
     runs-on: ubuntu-latest
@@ -45,17 +45,4 @@ jobs:
         run: wc -l packages/aa_backend/env.dev.yml
       - run: yarn
       - run: yarn test
-      - run: yarn dev:deploy:backend
       - run: yarn dev:deploy:datalake
-      - name: build frontend
-        run: yarn dev:build:frontend
-        env:
-          AA_GRAPHQL_URL: https://wlfoc30xcj.execute-api.ap-northeast-2.amazonaws.com/dev/graphql
-      - name: deploy frontend
-        uses: peaceiris/actions-gh-pages@v2
-        with:
-          forceOrphan: true
-        env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./packages/aa_frontend/out
