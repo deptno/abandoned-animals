@@ -34,7 +34,7 @@ export const getAbandonedAnimals = async () => {
           _ => console.info('데이터 없음'),
         ),
         map<AbandonedAnimal, Raw>((t) => new Raw(t)),
-        filter(a => registeredAnimals.includes(a.desertionNo)),
+        filter(a => !registeredAnimals.includes(a.desertionNo)),
         pathOr<AbandonedAnimal[]>([], ['body', 'items']),
         tap(log),
       ),
