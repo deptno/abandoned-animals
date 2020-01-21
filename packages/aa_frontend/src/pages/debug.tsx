@@ -4,7 +4,7 @@ import {graphql} from '../lib/graphql'
 import {AbandonedAnimal} from '@deptno/aa_graphql_type'
 import {last} from 'ramda'
 
-export const HomePage: NextPage<Props> = props => {
+export const DebugPage: NextPage<Props> = props => {
   const [data, setData] = useState<{ node: AbandonedAnimal, cursor?: string }[]>([])
   const [cursor, setCursor] = useState<string>()
   const handleMoreButton = () => {
@@ -32,29 +32,32 @@ export const HomePage: NextPage<Props> = props => {
 
   return (
     <div className="mt3">
-      <div className="">
+      <div className="ph3">/</div>
+      <div className="pa3">
         {data.map(({node: d}) => {
           return (
-            <div
-              className="relative flex flex-column justify-start lh-copy outline mv3 w-100 white-70 overflow-scroll vh-100 bg-light-yellow justify-center"
-              key={d.desertionNo!}
-            >
-              <img className="absolute h6 o-90 w-100" src={d.popfile!}/>
-              <p className="absolute tr relative flex flex-column ph2 right-0 top-0">
-                <span className="bg-black-10">유기번호: {d.desertionNo}</span>
-                <span className="bg-black-10">나이: {d.age}</span>
-                <span className="bg-black-10">접수일: {d.happenDt}</span>
-                <span className="bg-black-10">발견장소: {d.happenPlace}</span>
-                <span className="bg-black-10">종: {d.kindCd}</span>
-                <span className="bg-black-10">중성화 수술 상태: {d.neuterYn}</span>
-                <span className="bg-black-10">공고번호: {d.noticeNo}</span>
-                <span className="bg-black-10">공고 종료일: {d.noticeEdt}</span>
-                <span className="bg-black-10">입양 상태: {d.processState}</span>
-                <span className="bg-black-10">성별: {d.sexCd}</span>
-                <span className="bg-black-10">체중: {d.weight}</span>
-                <span className="bg-black-10">특징: {d.specialMark}</span>
-                <span className="bg-black-10">특이사항: {d.noticeComment}</span>
-              </p>
+            <div className="flex flex-column justify-start lh-copy outline pa3 mv3" key={d.desertionNo!}>
+              <span className="hover-bg-light-gray">유기번호: {d.desertionNo}</span>
+              <span className="hover-bg-light-gray">나이: {d.age}</span>
+              <span className="hover-bg-light-gray">보호소 주소: {d.careAddr}</span>
+              <span className="hover-bg-light-gray">보호소 이름: {d.careNm}</span>
+              <span className="hover-bg-light-gray">보호소 전화번호: {d.careTel}</span>
+              <span className="hover-bg-light-gray">색: {d.colorCd}</span>
+              <span className="hover-bg-light-gray">접수일: {d.happenDt}</span>
+              <span className="hover-bg-light-gray">발견장소: {d.happenPlace}</span>
+              <span className="hover-bg-light-gray">종: {d.kindCd}</span>
+              <span className="hover-bg-light-gray">중성화 수술 상태: {d.neuterYn}</span>
+              <span className="hover-bg-light-gray">특이사항: {d.noticeComment}</span>
+              <span className="hover-bg-light-gray">공고번호: {d.noticeNo}</span>
+              <span className="hover-bg-light-gray">공고 시작일: {d.noticeSdt}</span>
+              <span className="hover-bg-light-gray">공고 종료일: {d.noticeEdt}</span>
+              <span className="hover-bg-light-gray">담당자 연락처: {d.officetel}</span>
+              <span className="hover-bg-light-gray">관할기관: {d.orgNm}</span>
+              <span className="hover-bg-light-gray">사진: <img src={d.filename!}/><img src={d.popfile!}/></span>
+              <span className="hover-bg-light-gray">입양 상태: {d.processState}</span>
+              <span className="hover-bg-light-gray">성별: {d.sexCd}</span>
+              <span className="hover-bg-light-gray">특징: {d.specialMark}</span>
+              <span className="hover-bg-light-gray">체중: {d.weight}</span>
             </div>
           )
         })}
@@ -72,7 +75,7 @@ export const HomePage: NextPage<Props> = props => {
   )
 }
 
-export default HomePage
+export default DebugPage
 
 const getAA = (args?: { first?, after? }) => graphql(
   /* language=graphql */ `
