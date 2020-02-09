@@ -2,8 +2,11 @@
   "name": "@deptno/aa_frontend",
   "version": "0.0.0",
   "dependencies": {
+    "classnames": "^2.2.6",
+    "date-fns": "^2.9.0",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.1.7",
+    "next-seo": "^4.1.0",
     "ramda": "^0.26.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

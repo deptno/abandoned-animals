@@ -1099,7 +1099,7 @@
 "@deptno/aa_graphql_type@file:packages/aa_graphql_type":
   version "0.0.0"
   dependencies:
-    "@deptno/aa_data_source" "file:../../../../../Library/Caches/Yarn/v6/npm-@deptno-aa-graphql-type-0.0.0-1c79584d-4312-40eb-8fd6-f0c7f6781a6a-1579527468284/node_modules/@deptno/aa_data_source"
+    "@deptno/aa_data_source" "file:../../../../../Library/Caches/Yarn/v6/npm-@deptno-aa-graphql-type-0.0.0-a76861fd-41b2-420a-ab86-bd988657c4ac-1581249547557/node_modules/@deptno/aa_data_source"
 
 "@deptno/aa_parser@file:packages/aa_parser":
   version "0.0.0"
@@ -3758,6 +3758,11 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+classnames@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
 clean-stack@^2.0.0:
   version "2.2.0"
@@ -8406,6 +8411,11 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
+
+next-seo@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.1.0.tgz#1f87a5184a81af7aab07409f40eab99ee638da8a"
+  integrity sha512-wHFrn20xc1jPaCaAviD11F1lNdmbp07kysFiLXZTArIqk8YSWOXCEkmh3kgVuXBkHeZOhIUdbuEc9xtf0LgCLg==
 
 next-tick@1, next-tick@^1.0.0, next-tick@~1.0.0:
   version "1.0.0"
