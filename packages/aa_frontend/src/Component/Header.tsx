@@ -6,7 +6,7 @@ export const Header: FunctionComponent<Props> = props => {
     <header className="flex f3 pa3">
       <h1 className="ph2 ph0-ns f5">{const_site_title}</h1>
       <div className="ml-auto flex items-center justify-between">
-        <a className="link black mh3" href={const_site_url} target="_blank">
+        <a className="link black mh3" href="https://github.com/deptno/abandoned-animals" target="_blank">
           <i className="fab fa-github black-70 "/>
         </a>
         <a className="link black-70" href="http://bglee.me#abandoned-animals" target="_blank">
