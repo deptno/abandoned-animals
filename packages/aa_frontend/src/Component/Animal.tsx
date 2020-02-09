@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from 'react'
+import React, {FunctionComponent, useCallback, useMemo, useState} from 'react'
 import {AbandonedAnimal} from '@deptno/aa_graphql_type'
 import c from 'classnames'
 import {AnimalInfo} from './AnimalInfo'
@@ -6,7 +6,7 @@ import {AdoptionInfo} from './AnoptionInfo'
 
 type InfoType = 'animal' | 'adoption'
 
-export const Animal: React.FunctionComponent<AbandonedAnimal> = props => {
+export const Animal: FunctionComponent<AbandonedAnimal> = props => {
   const [type, setType] = useState<InfoType>('animal')
   const showAnimalInfo = useCallback(() => setType('animal'), [])
   const showAdoptionInfo = useCallback(() => setType('adoption'), [])

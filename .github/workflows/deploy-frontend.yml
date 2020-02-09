@@ -7,7 +7,7 @@ on:
       - 'CHANGELOG.frontend.md'
       - '.github/workflows/deploy-frontend.yml'
 jobs:
-  backend:
+  frontend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1

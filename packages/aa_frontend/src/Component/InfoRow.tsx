@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {FunctionComponent} from 'react'
 
-export const InfoRow: React.FunctionComponent<Props> = props => {
+export const InfoRow: FunctionComponent<Props> = props => {
   return (
     <div className="flex">
       <style jsx>{/*language=css*/ `

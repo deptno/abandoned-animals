@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {FunctionComponent} from 'react'
 import {AbandonedAnimal} from '@deptno/aa_graphql_type'
 import {format, parse} from 'date-fns'
 import {InfoRow} from './InfoRow'
 
-export const AdoptionInfo: React.FunctionComponent<AbandonedAnimal> = props => {
+export const AdoptionInfo: FunctionComponent<AbandonedAnimal> = props => {
   return (
     <div className="relative flex flex-column ph2 right-0 top-0 h4 f7">
       <style jsx>{/*language=css*/ `

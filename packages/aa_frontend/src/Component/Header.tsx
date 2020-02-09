@@ -1,6 +1,5 @@
 import React, {FunctionComponent} from 'react'
-import Link from 'next/link'
-import {const_site_title, const_site_url} from '../../constant'
+import {const_site_title, const_site_url} from '../constant'
 
 export const Header: FunctionComponent<Props> = props => {
   return (
