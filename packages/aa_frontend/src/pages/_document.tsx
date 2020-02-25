@@ -1,5 +1,7 @@
 import React from 'react'
 import Document, {Head, Html, Main, NextScript} from 'next/document'
+import {Gtag} from '../Component/Gtag'
+import {const_google_analytics_id} from '../constant'
 
 export default class extends Document {
   render() {
@@ -20,6 +22,7 @@ export default class extends Document {
             type="text/css"
             href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.min.css"
           />
+          <Gtag id={const_google_analytics_id}/>
         </Head>
         <body>
         <Main/>

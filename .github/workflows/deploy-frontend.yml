@@ -49,6 +49,7 @@ jobs:
         run: yarn dev:build:frontend
         env:
           AA_GRAPHQL_URL: https://wlfoc30xcj.execute-api.ap-northeast-2.amazonaws.com/dev/graphql
+          GOOGLE_ANALYTICS_ID: UA-159081219-1
       - name: deploy frontend
         uses: peaceiris/actions-gh-pages@v2
         with:
