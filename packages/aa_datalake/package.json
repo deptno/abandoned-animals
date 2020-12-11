@@ -11,6 +11,6 @@
     "@deptno/aa_type": "file:../aa_type",
     "@deptno/dynamodb": "^0.1.0",
     "date-fns": "^2.9.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   }
 }
